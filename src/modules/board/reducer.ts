@@ -27,11 +27,11 @@ const reducer = (state: ICard[], { type, payload }: IAction): ICard[] => {
         { cardID: uuidv4(), cardTitle: "Card Title", tasks: [] },
       ];
     case UPDATE_CARD:
-      const { cardID, cardTitle } = payload as {
-        cardID: string;
-        cardTitle: string;
-      };
       return state.map((card) => {
+        const { cardID, cardTitle } = payload as {
+          cardID: string;
+          cardTitle: string;
+        };
         if (card.cardID === cardID) {
           return { ...card, cardTitle };
         }
@@ -72,13 +72,20 @@ const reducer = (state: ICard[], { type, payload }: IAction): ICard[] => {
         return card;
       });
     case REMOVE_CARD:
-      return [...state.filter((card) => card.cardID !== payload.cardID)];
+      const { cardID } = payload as {
+        cardID: string;
+      };
+      return [...state.filter((card) => card.cardID !== cardID)];
     case REMOVE_TASK:
       return state.map((card) => {
-        if (card.cardID === payload.cardID) {
+        const { cardID, taskID } = payload as {
+          cardID: string;
+          taskID: string;
+        };
+        if (card.cardID === cardID) {
           return {
             ...card,
-            tasks: card.tasks.filter((task) => task.taskID !== payload.taskID),
+            tasks: card.tasks.filter((task) => task?.taskID !== taskID),
           };
         }
         return card;
