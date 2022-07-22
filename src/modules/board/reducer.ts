@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { ICard } from "../../utils/common.type";
+import { ICard, ITask } from "../../utils/common.type";
 import {
   ADD_CARD,
   UPDATE_CARD,
@@ -85,7 +85,7 @@ const reducer = (state: ICard[], { type, payload }: IAction): ICard[] => {
         if (card.cardID === cardID) {
           return {
             ...card,
-            tasks: card.tasks.filter((task) => task?.taskID !== taskID),
+            tasks: card.tasks.filter((task: ITask) => task?.taskID !== taskID),
           };
         }
         return card;
