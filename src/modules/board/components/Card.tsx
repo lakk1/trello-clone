@@ -1,7 +1,7 @@
 import Task from "./Task";
 import TaskInput from "./TaskInput";
 import { useBoard } from "../board.context";
-import { ICard } from "../../../common.type";
+import { ICard } from "../../../utils/common.type";
 import { FC } from "react";
 import {
   ADD_TASK,

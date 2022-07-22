@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { ICard } from "../../common.type";
+import { ICard } from "../../utils/common.type";
 import {
   ADD_CARD,
   UPDATE_CARD,

@@ -1,6 +1,6 @@
 import React, { createContext, FC, useContext, useReducer } from "react";
 import reducer from "./reducer";
-import { ICard } from "../../common.type";
+import { ICard } from "../../utils/common.type";
 
 const mockData = [
   {
